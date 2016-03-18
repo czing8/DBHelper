@@ -13,7 +13,13 @@ typedef void (^Completion)(BOOL success);
 
 @interface AccountDao : NSObject
 
+//插入一条数据
 + (void)insertAccount:(AccountModel *)account completion:(Completion)completion;
+
+//插入多条数据
++ (void)insertAccounts:(NSArray *)accounts completion:(Completion)completion;
+
+
 
 + (void)deleteAccountByUserID:(NSString *)userID completion:(Completion)completion;
 
