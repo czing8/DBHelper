@@ -9,6 +9,8 @@
 #import "ViewController.h"
 
 #import "DataCenter.h"
+#import "SearchHistoryDao.h"
+
 
 @interface ViewController ()
 
@@ -59,6 +61,40 @@
 - (void)readFromDB{
     [AccountDao queryAccountByUserID:@"1342" completion:^(AccountModel *account) {
         NSLog(@"%s --> %@", __FUNCTION__, account.nickname);
+    }];
+}
+
+- (IBAction)insertAction:(id)sender {
+    AccountModel * model = [[AccountModel alloc] init];
+    model.userID = [NSString stringWithFormat:@"%u", arc4random()%1000];
+    model.phoneNum = @"15701235332";
+    model.birthday = @"23-23";
+    model.flavor = @"23";
+    model.nickname = @"er";
+    
+    [SearchHistoryDao insertSearchAccountHistory:model historyType:HistoryType100 successBlock:^(BOOL success) {
+        NSLog(@"%d",success);
+    }];
+}
+
+- (IBAction)deleteAction:(id)sender {
+    [SearchHistoryDao deleteAllHistoryType:HistoryType100 successBlock:^(BOOL success) {
+        NSLog(@"%d",success);
+        
+    }];
+}
+
+- (IBAction)updateAction:(id)sender {
+
+}
+
+- (IBAction)queryAction:(id)sender {
+    
+    
+    [SearchHistoryDao queryAccountHistoryType:HistoryType100 historyData:^(NSArray *historys) {
+        for (AccountModel * obj in historys) {
+            NSLog(@"stock --> %@", obj.userID);
+        }
     }];
 }
 

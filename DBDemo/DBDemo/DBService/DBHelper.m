@@ -1,19 +1,19 @@
 //
-//  DBManager.m
-//  DBDemo
+//  DBHelper.m
+//  HaierSmart
 //
-//  Created by Vols on 14/11/3.
-//  Copyright (c) 2014年 Vols. All rights reserved.
+//  Created by Vols on 16/3/9.
+//  Copyright © 2016年 HaierSmart. All rights reserved.
 //
 
-#import "DBManager.h"
+#import "DBHelper.h"
 
-NSString * const DBFile = @"haiersmart.db";
+NSString * const DBFile = @"hibor.db";
 
-@implementation DBManager
+@implementation DBHelper
 
-+ (DBManager *)sharedDBManager{
-    static DBManager *sharedInstance = nil;
++ (DBHelper *)sharedDB{
+    static DBHelper *sharedInstance = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -22,12 +22,12 @@ NSString * const DBFile = @"haiersmart.db";
     return sharedInstance;
 }
 
+
 - (id)init{
     if (self = [super init]) {
         NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        _dbPath = [docPath stringByAppendingPathComponent:@"data.db"];
+        _dbPath = [docPath stringByAppendingPathComponent:DBFile];
         
-        NSLog(@"Path::%@", _dbPath);
         _dbQueue =  [FMDatabaseQueue databaseQueueWithPath:_dbPath];
     }
     return self;

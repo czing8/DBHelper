@@ -7,13 +7,13 @@
 //
 
 #import "AccountDao.h"
-#import "DBManager.h"
+#import "DBHelper.h"
 
 @implementation AccountDao
 
 + (void)insertAccount:(AccountModel *)account completion:(Completion)completion{
     
-    [[DBManager sharedDBManager].dbQueue inDatabase:^(FMDatabase *db) {
+    [[DBHelper sharedDB].dbQueue inDatabase:^(FMDatabase *db){
         if (![db tableExists:@"users_list"]) {
             [db executeUpdate:@"create table users_list(user_id PRIMARY KEY, phone_num, nickname, birthday, flavor)"];
         }
@@ -32,7 +32,7 @@
 
     __block BOOL whoopsSomethingWrongHappened = true;
     
-    [[DBManager sharedDBManager].dbQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+    [[DBHelper sharedDB].dbQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
         
         if (![db tableExists:@"users_list"]) {
             [db executeUpdate:@"create table users_list(user_id PRIMARY KEY, phone_num, nickname, birthday, flavor)"];
@@ -53,7 +53,7 @@
 
 
 + (void)deleteAccountByUserID:(NSString *)userID completion:(Completion)completion{
-    [[DBManager sharedDBManager].dbQueue inDatabase:^(FMDatabase *db) {
+    [[DBHelper sharedDB].dbQueue inDatabase:^(FMDatabase *db) {
     
         BOOL success = [db executeUpdate:@"delete from users_list where user_id = ?",userID];
         completion(success);
@@ -61,7 +61,7 @@
 }
 
 + (void)updateAccount:(AccountModel *)account completion:(Completion)completion{
-    [[DBManager sharedDBManager].dbQueue inDatabase:^(FMDatabase *db) {
+    [[DBHelper sharedDB].dbQueue inDatabase:^(FMDatabase *db) {
         if (![db tableExists:@"users_list"]) {
             [db executeUpdate:@"create table users_list(user_id PRIMARY KEY, phone_num, nickname, birthday, flavor)"];
         }
@@ -74,7 +74,7 @@
 
 
 + (void)queryAccountByUserID:(NSString *)userID completion:(void(^)(AccountModel *account))completion{
-    [[DBManager sharedDBManager].dbQueue inDatabase:^(FMDatabase *db) {
+    [[DBHelper sharedDB].dbQueue inDatabase:^(FMDatabase *db) {
         if (![db tableExists:@"users_list"]) {
 //            [db executeUpdate:@"create table users_list(user_id PRIMARY KEY, phone_num, nickname, birthday, flavor)"];
             
@@ -83,7 +83,7 @@
         AccountModel * account = nil;
         FMResultSet *rs = [db executeQuery:@"select * from users_list where user_id = ?", userID];
         
-        if ([rs next]) {
+        while ([rs next]) {
             account = [AccountDao accountForRS:rs];
         }
         [rs close];
@@ -94,7 +94,7 @@
 }
 
 + (void)queryAccountByPhoneNum:(NSString *)phoneNum completion:(void(^)(AccountModel *account))completion{
-    [[DBManager sharedDBManager].dbQueue inDatabase:^(FMDatabase *db) {
+    [[DBHelper sharedDB].dbQueue inDatabase:^(FMDatabase *db) {
         if (![db tableExists:@"users_list"]) {
             //            [db executeUpdate:@"create table users_list(user_id PRIMARY KEY, phone_num, nickname, birthday, flavor)"];
             
@@ -103,7 +103,7 @@
         AccountModel * account = nil;
         FMResultSet *rs = [db executeQuery:@"select * from users_list where phone_num = ?", phoneNum];
         
-        if ([rs next]) {
+        while ([rs next]) {
             account = [AccountDao accountForRS:rs];
         }
         [rs close];

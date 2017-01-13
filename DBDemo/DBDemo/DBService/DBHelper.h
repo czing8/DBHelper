@@ -1,9 +1,9 @@
 //
-//  DBManager.h
-//  DBDemo
+//  DBHelper.h
+//  ProjectTools
 //
-//  Created by Vols on 14/11/3.
-//  Copyright (c) 2014年 Vols. All rights reserved.
+//  Created by Vols on 16/3/9.
+//  Copyright © 2016年 ProjectTools. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,11 +12,11 @@
 #import "FMDatabaseQueue.h"
 #import "FMDatabaseAdditions.h"
 
-@interface DBManager : NSObject
+@interface DBHelper : NSObject
 
 @property (nonatomic, strong) FMDatabaseQueue * dbQueue;
 @property (nonatomic, strong) NSString * dbPath;
 
-+ (DBManager *)sharedDBManager;
++ (DBHelper *)sharedDB;
 
 @end

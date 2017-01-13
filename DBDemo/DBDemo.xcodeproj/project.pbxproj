@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A3E2FF51D77BD96ED11BEBC1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BFA1C9EB1BBB4145B40DD67 /* libPods.a */; };
+		F1A29BDA1E28DC8A00C27A1D /* DBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A29BD91E28DC8A00C27A1D /* DBHelper.m */; };
+		F1A29BDD1E28DDE300C27A1D /* SearchHistoryDao.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A29BDC1E28DDE300C27A1D /* SearchHistoryDao.m */; };
 		F1D089721A0783FC008CB9BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D089711A0783FC008CB9BA /* main.m */; };
 		F1D089751A0783FC008CB9BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D089741A0783FC008CB9BA /* AppDelegate.m */; };
 		F1D089781A0783FC008CB9BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D089771A0783FC008CB9BA /* ViewController.m */; };
@@ -15,7 +17,6 @@
 		F1D0897D1A0783FC008CB9BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1D0897C1A0783FC008CB9BA /* Images.xcassets */; };
 		F1D089801A0783FC008CB9BA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1D0897E1A0783FC008CB9BA /* LaunchScreen.xib */; };
 		F1D0898C1A0783FC008CB9BA /* DBDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D0898B1A0783FC008CB9BA /* DBDemoTests.m */; };
-		F1D089981A078437008CB9BA /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D089971A078437008CB9BA /* DBManager.m */; };
 		F1D0899E1A078605008CB9BA /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D0899D1A078605008CB9BA /* AccountDao.m */; };
 		F1D089A31A0786CE008CB9BA /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D089A21A0786CE008CB9BA /* AccountModel.m */; };
 		F1D089A61A0786DC008CB9BA /* DataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D089A51A0786DC008CB9BA /* DataCenter.m */; };
@@ -35,6 +36,10 @@
 		4BFA1C9EB1BBB4145B40DD67 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F266E3776FAB3F1589CAF3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9CA33B57D1AF5AD84B16A4BE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F1A29BD81E28DC8A00C27A1D /* DBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBHelper.h; sourceTree = "<group>"; };
+		F1A29BD91E28DC8A00C27A1D /* DBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBHelper.m; sourceTree = "<group>"; };
+		F1A29BDB1E28DDE300C27A1D /* SearchHistoryDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryDao.h; sourceTree = "<group>"; };
+		F1A29BDC1E28DDE300C27A1D /* SearchHistoryDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistoryDao.m; sourceTree = "<group>"; };
 		F1D0896C1A0783FB008CB9BA /* DBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D089701A0783FC008CB9BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1D089711A0783FC008CB9BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -48,8 +53,6 @@
 		F1D089851A0783FC008CB9BA /* DBDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DBDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1D0898A1A0783FC008CB9BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1D0898B1A0783FC008CB9BA /* DBDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBDemoTests.m; sourceTree = "<group>"; };
-		F1D089961A078437008CB9BA /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
-		F1D089971A078437008CB9BA /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		F1D0899C1A078605008CB9BA /* AccountDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDao.h; sourceTree = "<group>"; };
 		F1D0899D1A078605008CB9BA /* AccountDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDao.m; sourceTree = "<group>"; };
 		F1D089A11A0786CE008CB9BA /* AccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountModel.h; sourceTree = "<group>"; };
@@ -161,10 +164,12 @@
 		F1D089951A078427008CB9BA /* DBService */ = {
 			isa = PBXGroup;
 			children = (
-				F1D089961A078437008CB9BA /* DBManager.h */,
-				F1D089971A078437008CB9BA /* DBManager.m */,
+				F1A29BD81E28DC8A00C27A1D /* DBHelper.h */,
+				F1A29BD91E28DC8A00C27A1D /* DBHelper.m */,
 				F1D0899C1A078605008CB9BA /* AccountDao.h */,
 				F1D0899D1A078605008CB9BA /* AccountDao.m */,
+				F1A29BDB1E28DDE300C27A1D /* SearchHistoryDao.h */,
+				F1A29BDC1E28DDE300C27A1D /* SearchHistoryDao.m */,
 			);
 			path = DBService;
 			sourceTree = "<group>";
@@ -323,12 +328,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1D0899E1A078605008CB9BA /* AccountDao.m in Sources */,
+				F1A29BDD1E28DDE300C27A1D /* SearchHistoryDao.m in Sources */,
 				F1D089781A0783FC008CB9BA /* ViewController.m in Sources */,
 				F1D089751A0783FC008CB9BA /* AppDelegate.m in Sources */,
+				F1A29BDA1E28DC8A00C27A1D /* DBHelper.m in Sources */,
 				F1D089A31A0786CE008CB9BA /* AccountModel.m in Sources */,
 				F1D089A61A0786DC008CB9BA /* DataCenter.m in Sources */,
 				F1D089721A0783FC008CB9BA /* main.m in Sources */,
-				F1D089981A078437008CB9BA /* DBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
